@@ -7,18 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D26A51352978761A00CCDC9F /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26A51342978761A00CCDC9F /* SwiftUIView.swift */; };
 		D27134AE29774FE70037476B /* Ab_AstrisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27134AD29774FE70037476B /* Ab_AstrisApp.swift */; };
 		D27134B029774FE70037476B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27134AF29774FE70037476B /* ContentView.swift */; };
 		D27134B229774FE90037476B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D27134B129774FE90037476B /* Assets.xcassets */; };
 		D27134B529774FE90037476B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D27134B429774FE90037476B /* Preview Assets.xcassets */; };
+		D27134C82977531E0037476B /* Horoscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27134C72977531E0037476B /* Horoscope.swift */; };
+		D27134CA297756AF0037476B /* HoroscopeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27134C9297756AF0037476B /* HoroscopeModel.swift */; };
+		D27134D229778DCA0037476B /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27134D129778DCA0037476B /* FriendView.swift */; };
+		D27134D429778DE90037476B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27134D329778DE90037476B /* HomeView.swift */; };
+		D27134DB297795680037476B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27134DA297795680037476B /* User.swift */; };
+		D27134DD297798400037476B /* OnboadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27134DC297798400037476B /* OnboadingView.swift */; };
+		D27134E129786B720037476B /* HoroscopeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27134E029786B720037476B /* HoroscopeCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D26A51342978761A00CCDC9F /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		D27134AA29774FE70037476B /* Ab Astris.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ab Astris.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D27134AD29774FE70037476B /* Ab_AstrisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ab_AstrisApp.swift; sourceTree = "<group>"; };
 		D27134AF29774FE70037476B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D27134B129774FE90037476B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D27134B429774FE90037476B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D27134C72977531E0037476B /* Horoscope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Horoscope.swift; sourceTree = "<group>"; };
+		D27134C9297756AF0037476B /* HoroscopeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeModel.swift; sourceTree = "<group>"; };
+		D27134D129778DCA0037476B /* FriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
+		D27134D329778DE90037476B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		D27134DA297795680037476B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D27134DC297798400037476B /* OnboadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboadingView.swift; sourceTree = "<group>"; };
+		D27134E029786B720037476B /* HoroscopeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,9 +68,12 @@
 			isa = PBXGroup;
 			children = (
 				D27134AD29774FE70037476B /* Ab_AstrisApp.swift */,
-				D27134AF29774FE70037476B /* ContentView.swift */,
+				D27134BE297750BF0037476B /* Models */,
+				D27134BD2977509E0037476B /* ViewModels */,
+				D27134BB297750840037476B /* Views */,
 				D27134B129774FE90037476B /* Assets.xcassets */,
 				D27134B329774FE90037476B /* Preview Content */,
+				D27134DA297795680037476B /* User.swift */,
 			);
 			path = "Ab Astris";
 			sourceTree = "<group>";
@@ -65,6 +84,51 @@
 				D27134B429774FE90037476B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D27134BB297750840037476B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D27134D729778FBD0037476B /* Main */,
+				D27134D929778FF30037476B /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D27134BD2977509E0037476B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D27134C72977531E0037476B /* Horoscope.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		D27134BE297750BF0037476B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D27134C9297756AF0037476B /* HoroscopeModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D27134D729778FBD0037476B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				D27134DC297798400037476B /* OnboadingView.swift */,
+				D27134AF29774FE70037476B /* ContentView.swift */,
+				D27134D329778DE90037476B /* HomeView.swift */,
+				D27134D129778DCA0037476B /* FriendView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		D27134D929778FF30037476B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D27134E029786B720037476B /* HoroscopeCardView.swift */,
+				D26A51342978761A00CCDC9F /* SwiftUIView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +201,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D27134D229778DCA0037476B /* FriendView.swift in Sources */,
+				D27134E129786B720037476B /* HoroscopeCardView.swift in Sources */,
+				D26A51352978761A00CCDC9F /* SwiftUIView.swift in Sources */,
+				D27134D429778DE90037476B /* HomeView.swift in Sources */,
 				D27134B029774FE70037476B /* ContentView.swift in Sources */,
+				D27134DB297795680037476B /* User.swift in Sources */,
 				D27134AE29774FE70037476B /* Ab_AstrisApp.swift in Sources */,
+				D27134DD297798400037476B /* OnboadingView.swift in Sources */,
+				D27134CA297756AF0037476B /* HoroscopeModel.swift in Sources */,
+				D27134C82977531E0037476B /* Horoscope.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
