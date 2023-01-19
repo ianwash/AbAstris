@@ -17,15 +17,16 @@ class Horoscope: ObservableObject {
     @Published var mood: String = ""
     @Published var description: String = ""
     @Published var compSymbol: String = ""
+    @Published var symbol: String = ""
     var h = ["Aquarius": "♒︎", "Pisces": "♓︎", "Aries": "♈︎", "Taurus": "♉︎", "Capricorn": "♑︎", "Cancer": "♋︎", "Sagittarius": "♐︎", "Virgo": "♍︎", "Gemini": "♊︎", "Leo": "♌︎", "Scorpio": "♏︎", "Libra": "♎︎"]
     
-    init(day: String) {
-        fetchHoroscope(day: day)
+    init(sign: String, day: String) {
+        fetchHoroscope(sign: sign, day: day)
     }
     
-    func fetchHoroscope(day: String) {
+    func fetchHoroscope(sign: String, day: String) {
         // try to build URL, return if cannot be made
-        guard let url = URL(string: "https://aztro.sameerkumar.website?sign=pisces&day=\(day)") else {
+        guard let url = URL(string: "https://aztro.sameerkumar.website?sign=\(sign)&day=\(day)") else {
             return
         }
         
@@ -54,6 +55,7 @@ class Horoscope: ObservableObject {
                     self.mood = response.mood
                     self.description = response.description
                     self.compSymbol = self.getCompHoroscope()
+                    self.symbol = self.getSign(sign: sign)
                 }
             }
             // catch error if unable to decode to JSON
@@ -68,7 +70,7 @@ class Horoscope: ObservableObject {
         return self.h[compatibility] ?? ""
     }
     
-//    func getSign() -> String {
-//        return self.h[compatibility]
-//    }
+    func getSign(sign: String) -> String {
+        return self.h[sign] ?? ""
+    }
 }

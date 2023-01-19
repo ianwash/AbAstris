@@ -17,7 +17,6 @@
 		D27134D229778DCA0037476B /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27134D129778DCA0037476B /* FriendView.swift */; };
 		D27134D429778DE90037476B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27134D329778DE90037476B /* HomeView.swift */; };
 		D27134DB297795680037476B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27134DA297795680037476B /* User.swift */; };
-		D27134DD297798400037476B /* OnboadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27134DC297798400037476B /* OnboadingView.swift */; };
 		D27134E129786B720037476B /* HoroscopeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27134E029786B720037476B /* HoroscopeCardView.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,7 +32,6 @@
 		D27134D129778DCA0037476B /* FriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
 		D27134D329778DE90037476B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		D27134DA297795680037476B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		D27134DC297798400037476B /* OnboadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboadingView.swift; sourceTree = "<group>"; };
 		D27134E029786B720037476B /* HoroscopeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoroscopeCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,7 +112,6 @@
 		D27134D729778FBD0037476B /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				D27134DC297798400037476B /* OnboadingView.swift */,
 				D27134AF29774FE70037476B /* ContentView.swift */,
 				D27134D329778DE90037476B /* HomeView.swift */,
 				D27134D129778DCA0037476B /* FriendView.swift */,
@@ -208,7 +205,6 @@
 				D27134B029774FE70037476B /* ContentView.swift in Sources */,
 				D27134DB297795680037476B /* User.swift in Sources */,
 				D27134AE29774FE70037476B /* Ab_AstrisApp.swift in Sources */,
-				D27134DD297798400037476B /* OnboadingView.swift in Sources */,
 				D27134CA297756AF0037476B /* HoroscopeModel.swift in Sources */,
 				D27134C82977531E0037476B /* Horoscope.swift in Sources */,
 			);
@@ -347,6 +343,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -376,6 +373,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

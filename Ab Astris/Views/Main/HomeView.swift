@@ -8,18 +8,30 @@
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var yesterdayHoroscope = Horoscope(day: "yesterday")
-    @StateObject var todayHoroscope = Horoscope(day: "today")
-    @StateObject var tomorrowHoroscope = Horoscope(day: "tomorrow")
+    @StateObject var yesterdayHoroscope = Horoscope(sign: UserDefaults.standard.object(forKey: "sign") as! String, day: "yesterday")
+    @StateObject var todayHoroscope = Horoscope(sign: UserDefaults.standard.object(forKey: "sign") as! String, day: "today")
+    @StateObject var tomorrowHoroscope = Horoscope(sign: UserDefaults.standard.object(forKey: "sign") as! String, day: "tomorrow")
     @State var selection = 2
     var body: some View {
         VStack {
             Spacer()
-            Text("ab astris")
-                .foregroundColor(Color.black)
-                .font(.system(size: 35))
-                .fontWeight(.bold)
-                .padding(0)
+            HStack {
+                Text(todayHoroscope.symbol)
+                    .foregroundColor(Color.black)
+                    .font(.system(size: 35))
+                    .fontWeight(.bold)
+                    .padding(0)
+                Text("ab astris")
+                    .foregroundColor(Color.black)
+                    .font(.system(size: 35))
+                    .fontWeight(.bold)
+                    .padding(0)
+                Text(todayHoroscope.symbol)
+                    .foregroundColor(Color.black)
+                    .font(.system(size: 35))
+                    .fontWeight(.bold)
+                    .padding(0)
+            }
             TabView(selection: $selection) {
                 HoroscopeCardView(day: "Yesterday").environmentObject(yesterdayHoroscope)
                     .tag(1)

@@ -27,13 +27,13 @@ struct HoroscopeCardView: View {
                     
                     Spacer()
                     
-//                    ShareLink(item: horoscope.description) {
-//                        Image(systemName: "square.and.arrow.up")
-//                            .foregroundColor(Color.white)
-//                            .font(.system(size: 20))
-//                            .padding([.trailing], 25)
-//                            .padding([.bottom], 2)
-//                    }
+                    ShareLink(item: horoscope.description) {
+                        Image(systemName: "square.and.arrow.up")
+                            .foregroundColor(Color.white)
+                            .font(.system(size: 20))
+                            .padding([.trailing], 25)
+                            .padding([.bottom], 2)
+                    }
                 }
                 .padding([.bottom], 0)
                 
