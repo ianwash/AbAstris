@@ -8,6 +8,7 @@
 import Foundation
 
 class Horoscope: ObservableObject {
+    let helper = HelperFunctions()
     @Published var current_date: String = ""
     @Published var compatibility: String = ""
     @Published var lucky_time: String = ""
@@ -18,7 +19,6 @@ class Horoscope: ObservableObject {
     @Published var description: String = ""
     @Published var compSymbol: String = ""
     @Published var symbol: String = ""
-    var h = ["Aquarius": "♒︎", "Pisces": "♓︎", "Aries": "♈︎", "Taurus": "♉︎", "Capricorn": "♑︎", "Cancer": "♋︎", "Sagittarius": "♐︎", "Virgo": "♍︎", "Gemini": "♊︎", "Leo": "♌︎", "Scorpio": "♏︎", "Libra": "♎︎"]
     
     init(sign: String, day: String) {
         fetchHoroscope(sign: sign, day: day)
@@ -54,8 +54,8 @@ class Horoscope: ObservableObject {
                     self.date_range = response.date_range
                     self.mood = response.mood
                     self.description = response.description
-                    self.compSymbol = self.getCompHoroscope()
-                    self.symbol = self.getSign(sign: sign)
+                    self.compSymbol = self.helper.getMatchingSymbol(sign: self.compatibility)
+                    self.symbol = self.helper.getMatchingSymbol(sign: sign)
                 }
             }
             // catch error if unable to decode to JSON
@@ -64,13 +64,5 @@ class Horoscope: ObservableObject {
             }
         }
         task.resume()
-    }
-    
-    func getCompHoroscope() -> String {
-        return self.h[compatibility] ?? ""
-    }
-    
-    func getSign(sign: String) -> String {
-        return self.h[sign] ?? ""
     }
 }

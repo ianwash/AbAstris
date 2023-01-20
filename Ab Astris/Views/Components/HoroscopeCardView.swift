@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HoroscopeCardView: View {
     @EnvironmentObject var horoscope: Horoscope
-    var day: String
+    @Binding var header: String
     var width = UIScreen.main.bounds.width - 60
     var height = UIScreen.main.bounds.height - 280
     
@@ -19,7 +19,7 @@ struct HoroscopeCardView: View {
             
             VStack {
                 HStack {
-                    Text(day)
+                    Text(header)
                         .foregroundColor(Color.white)
                         .font(.system(size: 35))
                         .fontWeight(.bold)
