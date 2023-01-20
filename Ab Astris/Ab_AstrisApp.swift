@@ -47,7 +47,7 @@ struct Ab_AstrisApp: App {
                         }
                         .confirmationDialog("Are you sure?",
                                             isPresented: $isPresentingConfirm) {
-                            Button("Confirm", role: .destructive) {
+                            Button("Confirm") {
                                 makeUser()
                             }
                         }

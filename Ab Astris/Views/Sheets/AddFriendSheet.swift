@@ -76,6 +76,8 @@ struct AddFriendSheet: View {
     
     func addFriend() {
         let sign = helper.getSign(birthDate: birthDate)
+        // accounts for spaces in name, only will take first part
+        name = name.components(separatedBy: " ")[0]
         friends.append("\(sign) \(name)")
         UserDefaults.standard.set(friends, forKey: "friends")
         name = ""
