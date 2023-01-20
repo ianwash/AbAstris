@@ -10,6 +10,8 @@ import SwiftUI
 struct HoroscopeCardView: View {
     @EnvironmentObject var horoscope: Horoscope
     @Binding var header: String
+    
+    // calculate the area the card should take up
     var width = UIScreen.main.bounds.width - 60
     var height = UIScreen.main.bounds.height - 280
     

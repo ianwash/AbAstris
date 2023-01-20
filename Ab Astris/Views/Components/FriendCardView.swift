@@ -47,6 +47,7 @@ struct FriendCardView: View {
         .clipped()
         .cornerRadius(20)
         .onAppear {
+            // break apart the friend data
             let components = info.components(separatedBy: " ")
             signText = components[0]
             name = components[1]

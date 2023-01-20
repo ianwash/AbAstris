@@ -8,21 +8,20 @@
 import SwiftUI
 
 struct FriendView: View {
+    // if there is nothing in UserDefaults, make the friends key with empty array
     @State var friends = UserDefaults.standard.object(forKey: "friends") as? [String] ?? []
     @State var showingSheet = false
-    @State var birthDate = Date()
-    @State var name = ""
     @State var friendHoroscopeSheet = false
-    @State var todayHoroscope = Horoscope(sign: "Pisces", day: "Today")
-    @State var selectedName: String = ""
+    @State var selectedFriend: String = ""
+    
     let helper = HelperFunctions()
     
     var body: some View {
         VStack {
             HStack {
-                Text("Your Friends")
+                Text("Your Constellation")
                     .foregroundColor(Color.black)
-                    .font(.system(size: 35))
+                    .font(.system(size: 30))
                     .fontWeight(.bold)
                     .padding()
                 Spacer()
@@ -34,39 +33,13 @@ struct FriendView: View {
                         .font(.system(size: 30))
                         .padding()
                 }
-                .sheet(isPresented: $showingSheet) {
-                    VStack {
-                        Spacer()
-                        if friends.count <= 10 {
-                            Text("Add a friend")
-                                .foregroundColor(Color.black)
-                                .font(.system(size: 20))
-                                .fontWeight(.bold)
-                                .padding(0)
-                            TextField(
-                                "Enter their name.",
-                                text: $name
-                            )
-                            .padding([.leading, .trailing], 20)
-                            DatePicker("Enter their birthday.", selection: $birthDate, displayedComponents: .date)
-                                .padding([.leading, .trailing], 20)
-                            Button {
-                                addFriend()
-                            } label: {
-                                Image(systemName: "checkmark.circle.fill")
-                                    .foregroundColor(Color.black)
-                                    .font(.system(size: 30))
-                                    .padding()
-                            }
-
-                        }
-                        else {
-                            Text("You have added the max number of friends.")
-                        }
-                        Spacer()
-                    }
+                .sheet(isPresented: $showingSheet, onDismiss: {
+                    friends = UserDefaults.standard.object(forKey: "friends") as? [String] ?? []
+                }) {
+                    AddFriendSheet()
                 }
             }
+            
             VStack {
                 if friends.count == 0 {
                     Spacer()
@@ -78,31 +51,22 @@ struct FriendView: View {
                         // display the friends
                         ForEach(friends, id: \.self) { friend in
                             Button {
-                                let components = friend.components(separatedBy: " ")
-                                selectedName = components[1] + "'s Day"
-                                todayHoroscope = Horoscope(sign: components[0], day: "today")
+                                selectedFriend = friend
                                 friendHoroscopeSheet.toggle()
                             } label: {
                                 FriendCardView(info: friend)
                             }
                         }
-                        .sheet(isPresented: $friendHoroscopeSheet) {
-                            HoroscopeCardView(header: self.$selectedName)
-                                .environmentObject(todayHoroscope)
+                        .sheet(isPresented: $friendHoroscopeSheet, onDismiss: {
+                            friends = UserDefaults.standard.object(forKey: "friends") as? [String] ?? []
+                        }) {
+                            FocusedFriendSheet(friend: $selectedFriend)
                         }
                     }
                 }
             }
+            
             Spacer()
         }
-    }
-    
-    func addFriend() {
-        let sign = helper.getSign(birthDate: birthDate)
-        friends.append("\(sign) \(name)")
-        UserDefaults.standard.set(friends, forKey: "friends")
-        name = ""
-        birthDate = Date()
-        showingSheet = false
     }
 }

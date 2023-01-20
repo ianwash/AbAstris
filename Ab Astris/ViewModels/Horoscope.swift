@@ -9,6 +9,7 @@ import Foundation
 
 class Horoscope: ObservableObject {
     let helper = HelperFunctions()
+    // announce when the changes occur, re-renders any view that relies on the data
     @Published var current_date: String = ""
     @Published var compatibility: String = ""
     @Published var lucky_time: String = ""
@@ -32,13 +33,14 @@ class Horoscope: ObservableObject {
         
         // build request
         var request = URLRequest(url: url)
-
+        
         request.httpMethod = "POST"
         
         // decode to model
         let task = URLSession.shared.dataTask(with: request) { data, _, error in
             // makes sure data is there and there is no error
             guard let data = data, error == nil else {
+                // TK for further error handling in the future
                 return
             }
             
@@ -60,6 +62,7 @@ class Horoscope: ObservableObject {
             }
             // catch error if unable to decode to JSON
             catch {
+                // TK for futher error handling in future
                 return
             }
         }

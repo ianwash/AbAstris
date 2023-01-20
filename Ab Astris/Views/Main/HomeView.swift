@@ -11,7 +11,10 @@ struct HomeView: View {
     @StateObject var yesterdayHoroscope = Horoscope(sign: UserDefaults.standard.object(forKey: "sign") as! String, day: "yesterday")
     @StateObject var todayHoroscope = Horoscope(sign: UserDefaults.standard.object(forKey: "sign") as! String, day: "today")
     @StateObject var tomorrowHoroscope = Horoscope(sign: UserDefaults.standard.object(forKey: "sign") as! String, day: "tomorrow")
+    
     @State var selection = 2
+    
+    // necessary for the bindings, to make work with dynamic friends's names
     @State var today = "Today"
     @State var yesterday = "Yesterday"
     @State var tomorrow = "Tomorrow"
@@ -19,8 +22,9 @@ struct HomeView: View {
     var body: some View {
         VStack {
             Spacer()
+            
             HStack {
-                Text(todayHoroscope.symbol)
+                Text(self.todayHoroscope.symbol)
                     .foregroundColor(Color.black)
                     .font(.system(size: 25))
                     .fontWeight(.bold)
@@ -30,7 +34,7 @@ struct HomeView: View {
                     .font(.system(size: 25))
                     .fontWeight(.bold)
                     .padding(0)
-                Text(todayHoroscope.symbol)
+                Text(self.todayHoroscope.symbol)
                     .foregroundColor(Color.black)
                     .font(.system(size: 25))
                     .fontWeight(.bold)
@@ -41,10 +45,10 @@ struct HomeView: View {
                 .foregroundColor(Color.black)
                 .padding(0)
             
-            TabView(selection: $selection) {
+            TabView(selection: self.$selection) {
                 VStack {
                     HoroscopeCardView(header: self.$yesterday)
-                        .environmentObject(yesterdayHoroscope)
+                        .environmentObject(self.yesterdayHoroscope)
                     HStack {
                         Spacer()
                         Image(systemName: "arrow.right")
@@ -55,7 +59,7 @@ struct HomeView: View {
                 
                 VStack {
                     HoroscopeCardView(header: self.$today)
-                        .environmentObject(todayHoroscope)
+                        .environmentObject(self.todayHoroscope)
                     HStack {
                         Image(systemName: "arrow.left")
                             .padding()
@@ -65,10 +69,10 @@ struct HomeView: View {
                     }
                 }
                 .tag(2)
-
+                
                 VStack {
                     HoroscopeCardView(header: self.$tomorrow)
-                        .environmentObject(tomorrowHoroscope)
+                        .environmentObject(self.tomorrowHoroscope)
                         .tag(3)
                     HStack {
                         Image(systemName: "arrow.left")
@@ -78,9 +82,10 @@ struct HomeView: View {
                 }
                 .tag(3)
             }
-                .tabViewStyle(.page(indexDisplayMode: .never))
-                .onAppear(perform: {self.selection = 2})
-                .padding([.top], 0)
+            .tabViewStyle(.page(indexDisplayMode: .never))
+            .onAppear(perform: {self.selection = 2})
+            .padding([.top], 0)
+            
             Spacer()
         }
     }

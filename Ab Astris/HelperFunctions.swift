@@ -9,11 +9,11 @@ import Foundation
 
 struct HelperFunctions {
     func getSign(birthDate: Date) -> String{
-
+        // break apart the date
         let c = Calendar.current
         let day = c.component(.day, from: birthDate)
         let month = c.component(.month, from: birthDate)
-
+        
         // takes the date ranges that span months, dates are inclusive
         switch (day, month) {
         case (20...31,1),(1...18,2):
